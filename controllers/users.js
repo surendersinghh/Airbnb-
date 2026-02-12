@@ -8,13 +8,11 @@ module.exports.userSignupRoute = (req, res) => {
 
 
 module.exports.userSignupRoute1 = async(req, res, next) => {
-    console.log(req.body);
         try {
          let {username, email, password} = req.body;
-         console.log(req.body);
     const newUser = new User({email, username});
     const registeredUser = await User.register(newUser, password);
-    console.log(registeredUser);
+    console.log("[signup] registered user id:", registeredUser._id);
     req.login(registeredUser, (err) => {
         if(err) {
             return next(err);
@@ -37,8 +35,7 @@ module.exports.userLoginRoute = (req, res) => {
 
 
 module.exports.userLoginRoute1 = async (req, res) => {
-  console.log(req.body);
-  req.flash("success", "Welcome back to WanderLust!");
+    req.flash("success", "Welcome back to WanderLust!");
   let redirectUrl = res.locals.redirectUrl || "/listings";
   res.redirect(redirectUrl);
 };

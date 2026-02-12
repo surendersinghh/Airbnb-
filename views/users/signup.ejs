@@ -29,7 +29,7 @@
     <h1 class="col-6 offset-3">Signup for WanderLust</h1>
     <div class="col-6 offset-3">
 
-        <form action="/signup" method="POST" class="needs-validation" novalidate>
+        <form action="/signup" method="POST" >
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input name="username" class="form-control" type="text" id="username" required>
@@ -46,7 +46,7 @@
                 <input name="password" class="form-control" type="password" id="password" required>
             </div>
 
-            <button type="submit" class="btn btn-success">SignUp</button>
+            <button type="submit" formmethod="post" class="btn btn-success">SignUp</button>
         </form>
         <p class="mt-2">Already have an account? <a href="/login">Login here</a></p>
     </div>
